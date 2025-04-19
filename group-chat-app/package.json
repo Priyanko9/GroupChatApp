@@ -14,7 +14,7 @@
     "coverage": "vitest run --coverage",
     "analyze": "vite build --mode analyze",
     "format": "prettier --write .",
-    "prepare": "cd .. & husky group-chat-app/.husky",
+    "prepare": "cd .. && husky group-chat-app/.husky",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui"
   },
