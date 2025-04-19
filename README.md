@@ -7,7 +7,7 @@
 ## 🚀 Features
 
 - 🔒 Secure user authentication
-- 💬 Real-time one-on-one and group messaging
+- 💬 Real-time group messaging
 - 🌐 WebSocket-based message delivery
 - 🕗 Message status indicators: sending, sent, delivered, read
 - 💾 Offline draft saving with IndexedDB
