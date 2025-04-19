@@ -5,25 +5,67 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "analyze": "vite build --mode analyze",
+    "format": "prettier --write .",
+    "prepare": "cd .. & husky group-chat-app/.husky"
   },
   "dependencies": {
+    "@firebase/app": "^0.11.4",
+    "@firebase/auth": "^1.10.0",
+    "@firebase/firestore": "^4.7.10",
+    "@firebase/storage": "^0.13.7",
+    "@radix-ui/react-dropdown-menu": "^2.1.10",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@tailwindcss/vite": "^4.1.4",
+    "@tanstack/react-query": "^5.74.4",
+    "@tanstack/react-query-devtools": "^5.74.4",
+    "firebase": "^11.6.0",
+    "framer-motion": "^12.7.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
+    "@eslint/js": "^9.25.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.22.0",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "postcss": "^8.5.3",
+    "prettier": "3.5.3",
+    "tailwindcss": "^4.1.4",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.1",
+    "vite-plugin-checker": "^0.9.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-svgr": "^4.3.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --config=eslint.config.js --fix"
+    ],
+    "*.{json,css,scss,md}": [
+      "npx prettier --write"
+    ]
   }
 }
