@@ -1,54 +1,99 @@
-# React + TypeScript + Vite
+# 💬 GroupChatApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GroupChatApp** is a modern, scalable, and real-time chat application built with React and TypeScript. Designed with a frontend system architecture that supports billions of users, this app showcases efficient messaging, dynamic user interfaces, and seamless syncing with offline support.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔒 Secure user authentication
+- 💬 Real-time group messaging
+- 🌐 WebSocket-based message delivery
+- 🕗 Message status indicators: sending, sent, delivered, read
+- 💾 Offline draft saving with IndexedDB
+- 📡 Message scheduling for failed/offline messages
+- 📱 Responsive, mobile-friendly UI
+- 🎨 Customizable themes using TailwindCSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Tech Stack
+
+- **Frontend**: React, TypeScript, Zustand
+- **Bundler**: Vite
+- **Styling**: TailwindCSS, MUI
+- **Icons**: React Icons / SVG with SVGR
+- **PWA**: Vite Plugin PWA
+- **Testing**: Jest, React Testing Library
+- **Offline Storage**: IndexedDB
+- **Communication**: WebSockets
+- **Utils**: Axios, classnames, compression plugin
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Priyanko9/GroupChatApp.git
+cd group-chat-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+````bash
+npm install
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+
+
+### 4. Build for production
+
+```bash
+npm run build
+
+
+---
+
+## 🧪 Run Tests
+
+```bash
+npm test
+
+
+---
+
+## 📷 Screenshots
+
+> _Will Add screenshots of chat interface, loading state, or mobile responsiveness here._
+
+---
+
+## 🔌 Future Enhancements
+
+- Group voice/video calling
+- Admin/moderation tools for group chats
+- Message search and filters
+- Emoji and file sharing support
+- Multilingual UI
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to [open an issue](https://github.com/Priyanko9/GroupChatApp/issues) or submit a PR.
+
+---
+
+
+
+## 📫 Contact
+
+For any inquiries or support, reach out via [priyankodas21@gmail.com](mailto:priyankodas21@gmail.com)
+````
