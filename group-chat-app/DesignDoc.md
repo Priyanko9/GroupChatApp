@@ -6,6 +6,76 @@ This manual offers a thorough system design for a stable frontend for an enterpr
 
 ![Diagram](./GroupChatAppArchitectureDiagram.png)
 
+**UI Designs**
+
+![Diagram](./GroupChatUIFull.png)
+
+**Components Architecture**
+
+<App>
+ 	 <Header />
+  	 <MainLayout />
+   	<Routes />
+</App>
+-----------------------------------------------------------------------------------
+<Header>
+  	<ProfileMenu />        
+  	 <NavigationBar />
+</Header>
+-------------------------------------------------------------------------------------
+<MainLayout>
+ 	<Sidebar />            
+  	 <ChatWindow />         
+</MainLayout>
+-------------------------------------------------------------------------------------
+<Sidebar>
+  	<SearchBar />
+  	<ConversationList>
+  		<ConversationItem /> 
+	<ConversationList/>
+  	<CreateGroupButton />
+</Sidebar>
+-------------------------------------------------------------------------------------
+
+<ChatWindow>
+  	<ChatHeader />                
+  	<MessageList>
+  		 <MessageItem />
+	<MessageList/>
+  	<AddMembersButton />        
+  	<MessageInputArea>
+        		<TypingBox />
+        		<SendButton />
+	<MessageInputArea/>
+</ChatWindow>
+-------------------------------------------------------------------------------------
+
+<CreateGroupPage>
+  	<GroupPictureUploader />
+  	 <GroupNameInput />
+  	 <GroupDescriptionInput />
+  	 <MemberSearchDropdown />
+<SelectedMembersList />
+   <CreateGroupButton />
+</CreateGroupPage>
+-------------------------------------------------------------------------------------
+
+<AdminDashboard>
+  	<AdminHeader>            
+  	<AdminSidebar>
+      <Dashboard/>
+      <Monitoring/>
+      <Configuration/>
+      <Settings/>
+	<AdminSidebar/>
+ 	<AdminMainPanel>
+        		 <StatsCards />         
+        		 <Logs />
+        		<AnalyticsCharts />
+        		<PermissionsManager />
+   </AdminMainPanel>
+<AdminDashboard/>
+
 **IndexedDB Data Storage and Access Patterns**
 
 IndexedDB is used by the app for client-side storage of messages, conversations, and pertinent data. Low-level browser database API IndexedDB can keep key-value object stores filled with large volumes of structured data—including files/blobs. Indexed Database is asynchronous, non-blocking, supports transactions and indices for effective querying unlike simpler storage (e.g. LocalStorage).
