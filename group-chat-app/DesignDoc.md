@@ -16,7 +16,9 @@ This manual offers a thorough system design for a stable frontend for an enterpr
   <Header>
     <ProfileMenu />
     <NavigationBar />
+    <CreateGroupPage />
   </Header>
+  <AdminDashboard/>
   <MainLayout>
     <Sidebar>
       <SearchBar />
