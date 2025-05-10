@@ -12,6 +12,7 @@ This manual offers a thorough system design for a stable frontend for an enterpr
 
 **Components Architecture**
 
+<pre> \```tsx
 <App>
  	 <Header>
   	 <MainLayout />
@@ -75,6 +76,7 @@ This manual offers a thorough system design for a stable frontend for an enterpr
         		<PermissionsManager />
    </AdminMainPanel>
 <AdminDashboard/>
+\``` </pre>
 
 **IndexedDB Data Storage and Access Patterns**
 
