@@ -13,7 +13,7 @@ This manual offers a thorough system design for a stable frontend for an enterpr
 **Components Architecture**
 
 <App>
- 	 <Header />
+ 	 <Header>
   	 <MainLayout />
    	<Routes />
 </App>
