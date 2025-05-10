@@ -12,71 +12,58 @@ This manual offers a thorough system design for a stable frontend for an enterpr
 
 **Components Architecture**
 
-<pre> \```tsx
 <App>
- 	 <Header>
-  	 <MainLayout />
-   	<Routes />
+  <Header>
+    <ProfileMenu />
+    <NavigationBar />
+  </Header>
+  <MainLayout>
+    <Sidebar>
+      <SearchBar />
+      <ConversationList>
+        <ConversationItem />
+      </ConversationList>
+      <CreateGroupButton />
+    </Sidebar>
+    <ChatWindow>
+      <ChatHeader />
+      <MessageList>
+        <MessageItem />
+      </MessageList>
+      <AddMembersButton />
+      <MessageInputArea>
+        <TypingBox />
+        <SendButton />
+      </MessageInputArea>
+    </ChatWindow>
+  </MainLayout>
+  <Routes />
 </App>
------------------------------------------------------------------------------------
-<Header>
-  	<ProfileMenu />        
-  	 <NavigationBar />
-</Header>
--------------------------------------------------------------------------------------
-<MainLayout>
- 	<Sidebar />            
-  	 <ChatWindow />         
-</MainLayout>
--------------------------------------------------------------------------------------
-<Sidebar>
-  	<SearchBar />
-  	<ConversationList>
-  		<ConversationItem /> 
-	<ConversationList/>
-  	<CreateGroupButton />
-</Sidebar>
--------------------------------------------------------------------------------------
-
-<ChatWindow>
-  	<ChatHeader />                
-  	<MessageList>
-  		 <MessageItem />
-	<MessageList/>
-  	<AddMembersButton />        
-  	<MessageInputArea>
-        		<TypingBox />
-        		<SendButton />
-	<MessageInputArea/>
-</ChatWindow>
--------------------------------------------------------------------------------------
 
 <CreateGroupPage>
-  	<GroupPictureUploader />
-  	 <GroupNameInput />
-  	 <GroupDescriptionInput />
-  	 <MemberSearchDropdown />
-<SelectedMembersList />
-   <CreateGroupButton />
+  <GroupPictureUploader />
+  <GroupNameInput />
+  <GroupDescriptionInput />
+  <MemberSearchDropdown />
+  <SelectedMembersList />
+  <CreateGroupButton />
 </CreateGroupPage>
--------------------------------------------------------------------------------------
 
 <AdminDashboard>
-  	<AdminHeader>            
-  	<AdminSidebar>
-      <Dashboard/>
-      <Monitoring/>
-      <Configuration/>
-      <Settings/>
-	<AdminSidebar/>
- 	<AdminMainPanel>
-        		 <StatsCards />         
-        		 <Logs />
-        		<AnalyticsCharts />
-        		<PermissionsManager />
-   </AdminMainPanel>
-<AdminDashboard/>
-\``` </pre>
+  <AdminHeader />
+  <AdminSidebar>
+    <Dashboard />
+    <Monitoring />
+    <Configuration />
+    <Settings />
+  </AdminSidebar>
+  <AdminMainPanel>
+    <StatsCards />
+    <Logs />
+    <AnalyticsCharts />
+    <PermissionsManager />
+  </AdminMainPanel>
+</AdminDashboard>
 
 **IndexedDB Data Storage and Access Patterns**
 
