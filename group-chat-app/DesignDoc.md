@@ -263,71 +263,71 @@ We will employ the following techniques to improve performance.
 7. Batch DOM Updates on Window Blur/Focus
 
 **Admin Dashboard and Management Features**
-The Admin Dashboard provides control and oversight capabilities:
-• User & conversation management (CRUD, roles, moderation),
-• System monitoring (stats, logs possibly),
-• Configuration (feature toggles, limits, etc. at org/system level).
-We design it to be consistent with the rest of the app, secure (only visible to authorized roles), and efficient for potentially large data sets (with search, filters, paging to help manage scale).
+Control and supervision features offered by the Admin Dashboard include:
+• User and conversation management (CRUD, roles, and moderation);
+• System monitoring (statistics, logs, perhaps); and
+• Configuration (feature toggles, limits, etc. at the organization/system level).
+With search, filters, and paging to help manage scale, we design it to be efficient for potentially large data sets, secure (only visible to authorized roles), and consistent with the rest of the app.
 
 **Error Handling and Edge Case Management**
 
-**Network Errors & Offline Handling**
-• Use navigator.onLine and window.offline to detect offline state.
-• Show banner: “You appear to be offline.”
-• Queue actions like message sends.
-• Block/disallow loading new data (e.g., conversations) with message: “Cannot load data while offline.”
-• Service worker can return fallback or cached data when network fails.
+**Offline Handling & Network Errors**
+• To determine the offline state, use window.offline and navigator.onLine.
+• Display the "You appear to be offline" banner.
+• Queue operations, such as sending messages.
+• Use the message "Cannot load data while offline" to prevent or prohibit loading new data, such as conversations.
+• In the event of a network outage, the service worker can return cached or fallback data.
 
 ---
 
-**Retry & Backoff**
-• Use exponential backoff for retrying WebSocket/API reconnects.
-• Provide a "Retry" button for failed requests (e.g., messages not loading).
+**Try Again & Back Off**
+• To try WebSocket/API reconnects again, use exponential backoff.
+• If a request fails (messages not loading, for example), provide a "Retry" button.
 
 ---
 
-**API Error Handling**
-• 401 Unauthorized: Trigger token refresh; if fails, redirect to login.
-• 403 Forbidden: Show “You don’t have permission for this action.”
-• 404 Not Found: Redirect and show “This conversation is no longer available.”
-• 500 Server Error: Show friendly message, suggest retry, log to Sentry.
-• 409 Conflict: Show “Edit failed due to conflict,” optionally reload data.
+**API Error Management**
+• 401 Unauthorized: Refresh the token; if it doesn't work, reroute to the login page.
+• 403 Prohibited: Display "This action is not authorized by you."
+• 404 Not Found: Show "This conversation is no longer available" after redirecting.
+• 500 Server Error: Log to Sentry, display a helpful message, and advise retrying.
+• 409 Conflict: Display "Edit failed due to conflict," with the option to reload the data.
 
 ---
 
-**Client-Side & Runtime Errors**
-• Use React Error Boundaries to catch UI errors.
-• Display: “Oops, something went wrong. Please try reloading.”
-• Log details to monitoring tools like Sentry.
+**Runtime & Client-Side Issues**
+• To detect UI errors, use React Error Boundaries.
+• Display: "Sorry, there was a problem. Try reloading, please.
+• Record information for monitoring programs such as Sentry.
 
 ---
 
 **Graceful Degradation**
-• No IndexedDB: Fall back to in-memory, warn about offline limitations.
-• No Service Worker: App still runs; offline mode disabled.
-• No WebSocket: Fallback to polling with notice of reduced performance.
+• No IndexedDB: Revert to in-memory and alert users to offline restrictions.
+• No Service Worker: Offline mode is disabled, but the app continues to function.
+• If WebSocket is unavailable, polling will be used with a warning of decreased performance.
 
 ---
 
 **Conversation-Level Edge Cases**
-• Empty Conversations: Show “No messages yet. Say hello!”
-• Large Message: Warn or prevent if size exceeds limit.
-• Failed Attachments: Show “Upload failed.” with retry option.
-• Unresolved Mentions: Don’t break UI; show plain text.
-• Typing Indicator: Auto-clear after timeout (e.g., 10s).
+• Empty Conversations: Display "No messages as of yet." Say hi!
+• Big Message: Alert or stop if the size goes over the limit.
+• Failed Attachments: Display "Upload failed." along with the option to try again.
+• Unresolved Mentions: Display plain text instead of breaking user interface.
+• Typing Indicator: automatically clears after a timeout (10s, for example).
 
 ---
 
 **Multiple Tabs / Devices**
-• Use localStorage events or BroadcastChannel to sync read states.
-• Reflect actions (e.g., mark as read) across tabs.
+• To synchronize read states, use BroadcastChannel or localStorage events.
+• Actions (like marking as read) are reflected across tabs.
 
 ---
 
 **Memory/Resource Edge Cases**
-• Cap queued messages if user spams “Send” offline.
-• Avoid storing too many messages in memory.
-• Use IndexedDB as source of truth to fetch older data.
+• If a user spams "Send" offline, queued messages are capped.
+• Refrain from keeping an excessive number of messages in memory.
+• To retrieve older data, use IndexedDB as the source of truth.
 
 ---
 
@@ -341,11 +341,11 @@ o “Storage full. Cannot save more messages offline.”
 ---
 
 **Edge Case Testing**
-• Simulate slow network, partial data loads, IDB quota issues, push/SW registration failures.
-• Ensure app doesn’t crash and displays useful fallbacks.
+• Model sluggish networks, partial loads, problems with IDB quotas, and push/SW registration errors.
+• Verify that the app displays helpful fallbacks and doesn't crash.
 
 ---
 
 **Error Logging & Observability**
-• Log significant errors (not just validation failures).
-• Useful for tracking frequency, cause, and impact of issues.
+• Record important errors, not just validation errors.
+• Helpful for monitoring the impact, cause, and frequency of problems.
