@@ -12,6 +12,7 @@ This manual offers a thorough system design for a stable frontend for an enterpr
 
 **Components Architecture**
 
+```
 <App>
   <Header>
     <ProfileMenu />
@@ -66,6 +67,7 @@ This manual offers a thorough system design for a stable frontend for an enterpr
     <PermissionsManager />
   </AdminMainPanel>
 </AdminDashboard>
+```
 
 **IndexedDB Data Storage and Access Patterns**
 
